@@ -16,6 +16,8 @@ def error_handling():
         arg.append(float(sys.argv[i]) / 100)
     except:
         exit(84)
+    if arg[0] < 0 or arg[1] < 0:
+        exit(84)
     return arg
 
 def clamp(x):
