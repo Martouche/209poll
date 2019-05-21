@@ -42,10 +42,14 @@ def my_calculs(tab):
     v = ((tab[2] * (1 - tab[2])) / tab[1]) * ((tab[0] - tab[1]) / (tab[0] - 1))
     i95 = interval(tab[2], 1.96 * sqrt(v))
     i99 = interval(tab[2], 2.58 * sqrt(v))
-    if int(i95[0]) <= 0 or int(i95[1]) >= 100:
-        i95 = 0
-    if int(i99[0]) <= 0 or float(i99[1]) >= 100:
-        i95 = 100
+    if int(i95[0]) <= 0:
+        int(i95[0]) = 0
+    if  int(i95[1]) >= 100:
+        int(i95[1]) = 100
+    if int(i99[0]) <= 0 :
+        int(i99[0]) = 0
+    if int(i99[1]) >= 100:
+        int (i99[1]) = 100
     return v, i95, i99
 
 def main():
