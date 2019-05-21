@@ -29,6 +29,8 @@ def interval(x, i):
 def first_print(tab):
     print("Population size: ", int(tab[0]), sep="")
     print("Sample size: ", int(tab[1]), sep="")
+    if tab[2]*100 > 100:
+        exit(84)
     print("Voting intentions: ", tab[2]*100, "%", sep="")
 
 def second_print(v, i95, i99):
@@ -40,9 +42,9 @@ def my_calculs(tab):
     v = ((tab[2] * (1 - tab[2])) / tab[1]) * ((tab[0] - tab[1]) / (tab[0] - 1))
     i95 = interval(tab[2], 1.96 * sqrt(v))
     i99 = interval(tab[2], 2.58 * sqrt(v))
-    if i95 <= 0:
+    if int(i95[0]) <= 0 or int(i95[1]) >= 100:
         i95 = 0
-    if i99 >= 100:
+    if int(i99[0]) <= 0 or float(i99[1]) >= 100:
         i95 = 100
     return v, i95, i99
 
