@@ -32,7 +32,7 @@ def first_print(tab):
 def second_print(v, i95, i99):
     print("Variance:\t\t\t", format(v, ".6f"), sep="")
     print("95% confidence interval:\t[", format(i95[0], ".2f"),"%; ", format(i95[1], ".2f"), "%]", sep ="")
-    print("95% confidence interval:\t[", format(i99[0], ".2f"),"%; ", format(i99[1], ".2f"), "%]", sep ="")
+    print("99% confidence interval:\t[", format(i99[0], ".2f"),"%; ", format(i99[1], ".2f"), "%]", sep ="")
 
 def my_calculs(tab):
     v = ((tab[2] * (1 - tab[2])) / tab[1]) * ((tab[0] - tab[1]) / (tab[0] - 1))
