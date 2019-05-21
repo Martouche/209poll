@@ -30,7 +30,7 @@ def first_print(tab):
     print("Voting intentions: ", tab[2]*100, "%", sep="")
 
 def second_print(v, i95, i99):
-    print("Variance:\t\t\t", format(v, ".5f"), sep="")
+    print("Variance:\t\t\t", format(v, ".6f"), sep="")
     print("95% confidence interval:\t[", format(i95[0], ".2f"),"%; ", format(i95[1], ".2f"), "%]", sep ="")
     print("95% confidence interval:\t[", format(i99[0], ".2f"),"%; ", format(i99[1], ".2f"), "%]", sep ="")
 
