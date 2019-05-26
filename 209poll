@@ -16,7 +16,16 @@ def error_handling():
         arg.append(float(sys.argv[i]) / 100)
     except:
         exit(84)
-    if arg[0] < 0 or arg[1] < 0:
+    if arg[0] <= 0 or arg[1] <= 0:
+        exit(84)
+    elif (arg[1] > arg[0]):
+        print("Error : sSize can't be superior to pSize and must be strictly positive")
+        exit(84)
+    elif (arg[2] < 0 or arg[2] > 100):
+        print("Error : p must be between 0% and 100%")
+        exit(84)
+    elif (arg[0] - 1 < 0):
+        print("Error : Division by zero")
         exit(84)
     return arg
 
@@ -42,14 +51,6 @@ def my_calculs(tab):
     v = ((tab[2] * (1 - tab[2])) / tab[1]) * ((tab[0] - tab[1]) / (tab[0] - 1))
     i95 = interval(tab[2], 1.96 * sqrt(v))
     i99 = interval(tab[2], 2.58 * sqrt(v))
-    if int(i95[0]) <= 0:
-        i95[0] = 0
-    if  int(i95[1]) >= 100:
-        i95[1] = 100
-    if int(i99[0]) <= 0:
-        i99[0] = 0
-    if int(i99[1]) >= 100:
-        i99[1] = 100
     return v, i95, i99
 
 def main():
